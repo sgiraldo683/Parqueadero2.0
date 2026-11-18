@@ -1,0 +1,6 @@
+@servicios_Parqueadero_HostAddress = http://localhost:5201
+
+GET {{servicios_Parqueadero_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
