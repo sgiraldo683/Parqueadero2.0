@@ -12,6 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Aplicacion_Parqueadero\Aplicacion_Parqueadero.csproj" />
+    <ProjectReference Include="..\front_Parqueadero\front_Parqueadero.Web\front_Parqueadero.Web.csproj" />
+    <ProjectReference Include="..\Presentacion_Parqueadero\Presentacion_Parqueadero.csproj" />
+    <ProjectReference Include="..\servicios_Parqueadero\servicios_Parqueadero.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
 
