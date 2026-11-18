@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Aplicacion_Parqueadero/Aplicacion_Parqueadero.csproj" />
-  <Project Path="front_Parqueadero/front_Parqueadero.Web/front_Parqueadero.Web.csproj" />
+  <Project Path="front_Parqueadero2.0/front_Parqueadero2.0.csproj" />
   <Project Path="Presentacion_Parqueadero/Presentacion_Parqueadero.csproj" />
   <Project Path="Pruebas_Parqueadero/Pruebas_Parqueadero.csproj" />
   <Project Path="servicios_Parqueadero/servicios_Parqueadero.csproj" />
