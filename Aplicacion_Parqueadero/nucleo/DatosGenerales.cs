@@ -1,4 +1,4 @@
-namespace lib_parqueadero.nucleo
+namespace Aplicacion_Parqueadero.nucleo
 {
     public class DatosGenerales
     {
