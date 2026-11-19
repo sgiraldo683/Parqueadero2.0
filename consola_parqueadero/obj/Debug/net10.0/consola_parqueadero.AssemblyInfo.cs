@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("consola_parqueadero")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ce967164ac4427d721761f28261608a025c3544")]
 [assembly: System.Reflection.AssemblyProductAttribute("consola_parqueadero")]
 [assembly: System.Reflection.AssemblyTitleAttribute("consola_parqueadero")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
