@@ -1,17 +1,16 @@
+using Aplicaciones_Parqueadero.implementaciones;
+using Aplicaciones_Parqueadero.interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
+builder.Services.AddScoped<IConexion, Conexion>();
+builder.Services.AddScoped<IClientesAplicacion, ClientesAplicacion>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
+app.MapGet("/", () => "");
 app.Run();
