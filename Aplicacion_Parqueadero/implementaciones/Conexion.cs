@@ -34,5 +34,7 @@ namespace Aplicacion_Parqueadero.implementaciones
         public DbSet<Turnos>? Turnos { get; set; }
         public DbSet<CierreCaja>? CierreCaja { get; set; }
         public DbSet<Promociones>? Promociones { get; set; }
+
+        public DbSet<Clientes>? Clientes { get; set; }
     }
 }
