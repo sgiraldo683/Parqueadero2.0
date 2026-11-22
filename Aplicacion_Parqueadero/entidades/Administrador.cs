@@ -2,10 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Aplicacion_Parqueadero.entidades
 {
-    public class Usuario
+    public class Administrador
     {
         [Key]
-        public int Id_usuario{ get; set; }
+        public int Id_administrador{ get; set; }
         public string? Nombres { get; set; }
         public string? Apellidos { get; set; }
         public string? Documento { get; set; }

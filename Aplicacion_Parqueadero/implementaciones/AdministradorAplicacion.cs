@@ -5,65 +5,65 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacion_Parqueadero.implementaciones
 {
-    public class VehiculosAplicacion : IClientesAplicacion
+    public class AdministadorsAplicacion : IAdministadorAplicacion
     {
         private IConexion conexion;
 
-        public VehiculosAplicacion(IConexion conexion)
+        public AdministadorsAplicacion(IConexion conexion)
         {
             this.conexion = conexion;
         }
 
-        public Clientes Actualizar(Clientes entidad)
+        public Administador Actualizar(Administador entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_administrador == 0)
                 throw new Exception("No se ha guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            var entry = this.conexion!.Entry<Clientes>(entidad);
+            var entry = this.conexion!.Entry<Administrador>(entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
             return entidad;
         }
 
-        public Clientes Borrar(Clientes entidad)
+        public Administrador Borrar(Administrador entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_administrador == 0)
                 throw new Exception("No se ha guardo");
 
-            this.conexion.Clientes!.Remove(entidad!);
+            this.conexion.Administradores!.Remove(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        public List<Clientes> Buscar(Clientes entidad)
+        public List<Administrador> Buscar(Administrador entidad)
         {
-            return this.conexion.Clientes!
+            return this.conexion.Administradores!
                 .Where(x => x.Nombres!.Contains(entidad.Nombres!))
                 .ToList();
         }
 
-        public List<Clientes> Consultar()
+        public List<Administrador> Consultar()
         {
-            return this.conexion.Clientes!.ToList();
+            return this.conexion.Administradores!.ToList();
         }
 
-        public Clientes Insertar(Clientes entidad)
+        public Administrador Insertar(Administrador entidad)
         {
-            if (entidad.Id_cliente != 0)
+            if (entidad.Id_administrador != 0)
                 throw new Exception("Ya se guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            this.conexion.Clientes!.Add(entidad!);
+            this.conexion.Administradores!.Add(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        private bool Validar(Clientes entidad)
+        private bool Validar(Administrador entidad)
         {
             return string.IsNullOrEmpty(entidad.Nombres) ||
                 string.IsNullOrEmpty(entidad.Apellidos) ||
