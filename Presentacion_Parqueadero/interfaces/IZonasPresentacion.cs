@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IZonasAplicacion
+    public interface IZonasPresentacion
     {
         Zonas Insertar(Zonas entidad);
         Zonas Actualizar(Zonas entidad);

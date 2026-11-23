@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IPromocionesAplicacion
+    public interface IPromocionesPresentacion
     {
         Promociones Insertar(Promociones entidad);
         Promociones Actualizar(Promociones entidad);

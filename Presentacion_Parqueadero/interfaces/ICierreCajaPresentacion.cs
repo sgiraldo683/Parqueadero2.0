@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface ICierreCajaAplicacion
+    public interface ICierreCajaPresentacion
     {
         CierreCaja Insertar(CierreCaja entidad);
         CierreCaja Actualizar(CierreCaja entidad);

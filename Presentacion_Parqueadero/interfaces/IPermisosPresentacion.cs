@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IPermisosAplicacion
+    public interface IPermisosPresentacion
     {
         Permisos Insertar(Permisos entidad);
         Permisos Actualizar(Permisos entidad);

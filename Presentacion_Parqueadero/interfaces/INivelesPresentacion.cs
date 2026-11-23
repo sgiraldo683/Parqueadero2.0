@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface INivelesAplicacion
+    public interface INivelesPresentacion
     {
         Niveles Insertar(Niveles entidad);
         Niveles Actualizar(Niveles entidad);

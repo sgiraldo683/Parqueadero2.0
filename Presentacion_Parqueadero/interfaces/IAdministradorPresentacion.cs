@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IClientesAplicacion
+    public interface IClientesPresentacion
     {
         Clientes Insertar(Clientes entidad);
         Clientes Actualizar(Clientes entidad);

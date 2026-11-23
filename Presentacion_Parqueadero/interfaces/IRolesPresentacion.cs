@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IRolesAplicacion
+    public interface IRolesPresentacion
     {
         Roles Insertar(Roles entidad);
         Roles Actualizar(Roles entidad);

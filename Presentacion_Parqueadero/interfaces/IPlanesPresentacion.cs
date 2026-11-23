@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IPlanesAplicacion
+    public interface IPlanesPresentacion
     {
         Planes Insertar(Planes entidad);
         Planes Actualizar(Planes entidad);
