@@ -28,7 +28,7 @@ namespace Aplicacion_Parqueadero.interfaces
         DbSet<Turnos>? Turnos { get; set; }
         DbSet<CierreCajas>? CierreCaja { get; set; }
         DbSet<Promociones>? Promociones { get; set; }
-        DbSet<Usuario>? Usuario { get; set; }
+        DbSet<Usuarios>? Usuario { get; set; }
         DbSet<Auditorias>? Auditorias { get; set; }
         DbSet<Permisos>? Permisos { get; set; }
 

@@ -5,10 +5,10 @@ namespace Aplicacion_Parqueadero.interfaces
 {
     public interface IUsuarioAplicacion
     {
-        Usuario Insertar(Usuario entidad);
-        Usuario Actualizar(Usuario entidad);
-        List<Usuario> Consultar();
-        Usuario Borrar(Usuario entidad);
-        List<Usuario> Buscar(Usuario entidad);
+        Usuarios Insertar(Usuarios entidad);
+        Usuarios Actualizar(Usuarios entidad);
+        List<Usuarios> Consultar();
+        Usuarios Borrar(Usuarios entidad);
+        List<Usuarios> Buscar(Usuarios entidad);
     }
 }
