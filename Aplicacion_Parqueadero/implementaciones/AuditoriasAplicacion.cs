@@ -5,65 +5,65 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacion_Parqueadero.implementaciones
 {
-    public class VehiculosAplicacion : IClientesAplicacion
+    public class AuditoriasAplicacion : IAuditoriasAplicacion
     {
         private IConexion conexion;
 
-        public VehiculosAplicacion(IConexion conexion)
+        public AuditoriasAplicacion(IConexion conexion)
         {
             this.conexion = conexion;
         }
 
-        public Clientes Actualizar(Clientes entidad)
+        public Auditorias Actualizar(Auditorias entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_auditoria == 0)
                 throw new Exception("No se ha guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            var entry = this.conexion!.Entry<Clientes>(entidad);
+            var entry = this.conexion!.Entry<Auditorias>(entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
             return entidad;
         }
 
-        public Clientes Borrar(Clientes entidad)
+        public Auditorias Borrar(Auditorias entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_auditoria== 0)
                 throw new Exception("No se ha guardo");
 
-            this.conexion.Clientes!.Remove(entidad!);
+            this.conexion.Auditorias!.Remove(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        public List<Clientes> Buscar(Clientes entidad)
+        public List<Auditorias> Buscar(Auditorias entidad)
         {
-            return this.conexion.Clientes!
+            return this.conexion.Auditorias!
                 .Where(x => x.Nombres!.Contains(entidad.Nombres!))
                 .ToList();
         }
 
-        public List<Clientes> Consultar()
+        public List<Auditorias> Consultar()
         {
-            return this.conexion.Clientes!.ToList();
+            return this.conexion.Auditorias!.ToList();
         }
 
-        public Clientes Insertar(Clientes entidad)
+        public Auditorias Insertar(Auditorias entidad)
         {
-            if (entidad.Id_cliente != 0)
+            if (entidad.Id_auditorias != 0)
                 throw new Exception("Ya se guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            this.conexion.Clientes!.Add(entidad!);
+            this.conexion.Auditorias!.Add(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        private bool Validar(Clientes entidad)
+        private bool Validar(Auditorias entidad)
         {
             return string.IsNullOrEmpty(entidad.Nombres) ||
                 string.IsNullOrEmpty(entidad.Apellidos) ||

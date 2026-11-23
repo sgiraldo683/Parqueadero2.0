@@ -3,12 +3,12 @@
 
 namespace Aplicacion_Parqueadero.interfaces
 {
-    public interface IClientesAplicacion
+    public interface IBoletosAplicacion
     {
-        Clientes Insertar(Clientes entidad);
-        Clientes Actualizar(Clientes entidad);
-        List<Clientes> Consultar();
-        Clientes Borrar(Clientes entidad);
-        List<Clientes> Buscar(Clientes entidad);
+        Boletos Insertar(Boletos entidad);
+        Boletos Actualizar(Boletos entidad);
+        List<Boletos> Consultar();
+        Boletos Borrar(Boletos entidad);
+        List<Boletos> Buscar(Boletos entidad);
     }
 }

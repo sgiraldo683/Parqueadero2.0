@@ -5,70 +5,69 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacion_Parqueadero.implementaciones
 {
-    public class VehiculosAplicacion : IClientesAplicacion
+    public class BoletosAplicacion : IBoletosAplicacion
     {
         private IConexion conexion;
 
-        public VehiculosAplicacion(IConexion conexion)
+        public BoletosAplicacion(IConexion conexion)
         {
             this.conexion = conexion;
         }
 
-        public Clientes Actualizar(Clientes entidad)
+        public Boletos Actualizar(Boletos entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_ticket == 0)
                 throw new Exception("No se ha guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            var entry = this.conexion!.Entry<Clientes>(entidad);
+            var entry = this.conexion!.Entry<Boletos>(entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
             return entidad;
         }
 
-        public Clientes Borrar(Clientes entidad)
+        public Boletos Borrar(Boletos entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_ticket == 0)
                 throw new Exception("No se ha guardo");
 
-            this.conexion.Clientes!.Remove(entidad!);
+            this.conexion.Boletos!.Remove(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        public List<Clientes> Buscar(Clientes entidad)
+        public List<Boletos> Buscar(Boletos entidad)
         {
-            return this.conexion.Clientes!
-                .Where(x => x.Nombres!.Contains(entidad.Nombres!))
+            return this.conexion.Boletos!
+                .Where(x => x.Codigo!.Contains(entidad.Codigo!))
                 .ToList();
         }
 
-        public List<Clientes> Consultar()
+        public List<Boletos> Consultar()
         {
-            return this.conexion.Clientes!.ToList();
+            return this.conexion.Boletos!.ToList();
         }
 
-        public Clientes Insertar(Clientes entidad)
+        public Boletos Insertar(Boletos entidad)
         {
-            if (entidad.Id_cliente != 0)
+            if (entidad.Id_ticket != 0)
                 throw new Exception("Ya se guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            this.conexion.Clientes!.Add(entidad!);
+            this.conexion.Boletos!.Add(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        private bool Validar(Clientes entidad)
+        private bool Validar(Boletos entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombres) ||
-                string.IsNullOrEmpty(entidad.Apellidos) ||
-                string.IsNullOrEmpty(entidad.Documento) ||
-                string.IsNullOrEmpty(entidad.Telefono);
+            return string.IsNullOrEmpty(entidad.Codigo) ||
+                entidad.Id_ticket == 0 ||
+                entidad.Id_vehiculo==0;
         }
     }
 }
