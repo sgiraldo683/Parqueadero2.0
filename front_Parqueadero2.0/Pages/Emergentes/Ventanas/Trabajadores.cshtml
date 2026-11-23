@@ -66,10 +66,10 @@
                 <br />
 
                 <label>
-                  Id_rol
+                  Tipo_trabajador
                 </label>
-                <input id=nmId_rol"
-                    asp-for="@Model.Actual!.Id_rol"/>
+                <input id=nmTipo_trabajador"
+                    asp-for="@Model.Actual!.Tipo_trabajador"/>
                 <br />
 
                
@@ -113,7 +113,7 @@
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Documento</th>
-                        <th>Id_rol</th>
+                        <th>Tipo_trabajador</th>
                         <th>Acción</th>
                     </tr>
                     @if (Model != null && Model.Lista != null)
@@ -124,7 +124,7 @@
                                 <td>@elemento.Nombres</td>
                                 <td>@elemento.Apellidos</td>
                                 <td>@elemento.Documento</td>
-                                <td>@elemento.Id_rol</td>
+                                <td>@elemento.Tipo_trabajador</td>
                                 <td>
                                     <input type="submit"
                                         value="Editar"

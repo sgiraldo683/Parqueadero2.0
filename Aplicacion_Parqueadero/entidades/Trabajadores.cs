@@ -9,6 +9,6 @@ namespace Aplicacion_Parqueadero.entidades
         public string? Nombres { get; set; }
         public string? Apellidos { get; set; }
         public string? Documento { get; set; }
-        public int? Id_rol { get; set; }
+        public int? Tipo_trabajador { get; set; }
     }
 }

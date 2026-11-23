@@ -7,5 +7,6 @@ namespace Aplicacion_Parqueadero.entidades
         [Key]
         public int Id_rol { get; set; }
         public string? Nombre { get; set; }
+        
     }
 }

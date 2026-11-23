@@ -45,31 +45,31 @@
                 
 
                 <label>
-                    Nombres
+                    Id_rol
                 </label>
-                <input id=nmNombres"
-                    asp-for="@Model.Actual!.Nombres"/>
+                <input id=nmId_rol"
+                    asp-for="@Model.Actual!.Id_rol"/>
                 <br />
 
                 <label>
-                   Apellidos
+                    Correo
                 </label>
-                <input id=nmApellidos"
-                    asp-for="@Model.Actual!.Apellidos"/>
+                <input id=nmCorreo"
+                    asp-for="@Model.Actual!.Correo"/>
                 <br />
 
                 <label>
-                    Documento
+                    Contraseña
                 </label>
-                <input id=nmDocumento"
-                    asp-for="@Model.Actual!.Documento"/>
+                <input id=nmContraseña"
+                    asp-for="@Model.Actual!.Contraseña"/>
                 <br />
 
                 <label>
-                   Telefono
+                    Estado
                 </label>
-                <input id=nmTelefono"
-                    asp-for="@Model.Actual!.Telefono"/>
+                <input id=nmEstado"
+                    asp-for="@Model.Actual!.Estado"/>
                 <br />
 
                
@@ -87,8 +87,8 @@
                     <h4>
                         ¿Quiere borrar el usuario con información 
                           
-                            @Model.Actual!.Nombres,
-                            @Model.Actual!.Documento?
+                            @Model.Actual!.Correo,
+                            @Model.Actual!.Contraseña?
                     </h4>
                     <input type="submit"
                         value="Cancelar"
@@ -110,10 +110,9 @@
                 <table class="tb_data table table-striped table-bordered table-hover">
                     <tr>
                         
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Documento</th>
-                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                        <th>Estado</th>
                         <th>Acción</th>
                     </tr>
                     @if (Model != null && Model.Lista != null)
@@ -121,10 +120,11 @@
                         foreach (var elemento in Model.Lista)
                         {
                             <tr>
-                                <td>@elemento.Nombres</td>
-                                <td>@elemento.Apellidos</td>
-                                <td>@elemento.Documento</td>
-                                <td>@elemento.Telefono</td>
+                                <td>@elemento.Id_rol</td>
+                                <td>@elemento.Correo</td>
+                                <td>@elemento.Contraseña</td>
+                                <td>@elemento.Estado</td>
+                                
                                 <td>
                                     <input type="submit"
                                         value="Editar"

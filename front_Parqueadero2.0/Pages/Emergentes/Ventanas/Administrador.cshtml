@@ -1,13 +1,13 @@
 ﻿@page
-@model ClientesModel
+@model AdministradorModel
 @{
-    ViewData["Title"] = "Clientes";
+    ViewData["Title"] = "Administradores";
 }
 <form method="post"
     enctype="multipart/form-data">
 
     <div class="text-center">
-        <h1 class="display-4">Clientes</h1>
+        <h1 class="display-4">Administradores</h1>
         <div>
             <input type="submit"
                 value="Consultar"
@@ -40,7 +40,7 @@
         @if (Model.Formulario)
         {
             <div>
-                <h3>Cliente</h3>
+                <h3>Administrador</h3>
 
                 
 
@@ -66,10 +66,10 @@
                 <br />
 
                 <label>
-                   Telefono
+                   Id_usuario
                 </label>
-                <input id=nmTelefono"
-                    asp-for="@Model.Actual!.Telefono"/>
+                <input id=nmId_usuario"
+                    asp-for="@Model.Actual!.Id_usuario"/>
                 <br />
 
                
@@ -85,7 +85,7 @@
                     </h3>
 
                     <h4>
-                        ¿Quiere borrar el cliente con información 
+                        ¿Quiere borrar el administrador con información 
                           
                             @Model.Actual!.Nombres,
                             @Model.Actual!.Documento?
@@ -113,7 +113,7 @@
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Documento</th>
-                        <th>Telefono</th>
+                        <th>Id_usuario</th>
                         <th>Acción</th>
                     </tr>
                     @if (Model != null && Model.Lista != null)
@@ -124,7 +124,7 @@
                                 <td>@elemento.Nombres</td>
                                 <td>@elemento.Apellidos</td>
                                 <td>@elemento.Documento</td>
-                                <td>@elemento.Telefono</td>
+                                <td>@elemento.Id_usuario</td>
                                 <td>
                                     <input type="submit"
                                         value="Editar"
