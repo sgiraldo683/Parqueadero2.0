@@ -4,6 +4,27 @@ go
 use db_parqueadero
 go
 
+CREATE TABLE Tipos_Trabajadores (
+    Id_Tipo INT IDENTITY(1,1)PRIMARY KEY,
+    Nombre VARCHAR(100) NULL
+);
+CREATE TABLE Roles (
+    Id_rol INT IDENTITY(1,1)PRIMARY KEY,
+    Nombre VARCHAR(100) NULL
+);
+CREATE TABLE Usuarios (
+    Id_usuario INT IDENTITY(1,1) PRIMARY KEY,
+    Id_rol INT  FOREIGN KEY  REFERENCES Roles(Id_rol),
+    Correo VARCHAR(100) NULL,
+    Contraseña VARCHAR(255) NULL,
+    Estado BIT NOT NULL,
+   
+);
+CREATE TABLE Auditorias (
+    Id_auditoria INT IDENTITY(1,1)PRIMARY KEY,
+    Nombre VARCHAR(100) NULL
+);
+
 CREATE TABLE TipoVehiculos (
     Id_tipo INT IDENTITY(1,1) PRIMARY KEY,
     Nombre VARCHAR(100) NULL,
@@ -109,10 +130,7 @@ CREATE TABLE Contratos (
     Fecha_inicio DATE NOT NULL,
     Fecha_fin DATE NOT NULL
 );
-CREATE TABLE Roles (
-    Id_rol INT IDENTITY(1,1)PRIMARY KEY,
-    Nombre VARCHAR(100) NULL
-);
+
 CREATE TABLE Trabajadores (
     Id_trabajador INT IDENTITY(1,1)  PRIMARY KEY,
     Nombres VARCHAR(100) NULL,

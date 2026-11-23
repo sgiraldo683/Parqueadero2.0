@@ -35,6 +35,9 @@ namespace Aplicacion_Parqueadero.implementaciones
         public DbSet<CierreCajas>? CierreCaja { get; set; }
         public DbSet<Promociones>? Promociones { get; set; }
 
-        public DbSet<Clientes>? Clientes { get; set; }
+        public DbSet<Tipos_Trabajadores>? Tipos_Trabajadores { get; set; }
+        public DbSet<Permisos>? Permisos { get; set; }
+        public DbSet<Usuarios>? Usuarios { get; set; }
+        public DbSet<Auditorias>? Auditorias { get; set; }
     }
 }

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Aplicacion_Parqueadero.entidades
 {
-    public class Auditorias
+    public class 0
     {
         [Key]
         public int Id_auditoria { get; set; }

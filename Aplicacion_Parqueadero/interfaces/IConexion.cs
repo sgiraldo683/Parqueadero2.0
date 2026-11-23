@@ -31,6 +31,7 @@ namespace Aplicacion_Parqueadero.interfaces
         DbSet<Usuarios>? Usuario { get; set; }
         DbSet<Auditorias>? Auditorias { get; set; }
         DbSet<Permisos>? Permisos { get; set; }
+        DbSet<Tipos_Trabajadores>? Tipos_Trabajadores { get; set; }
 
         EntityEntry<T> Entry<T>(T entity) where T : class;
         int SaveChanges();
