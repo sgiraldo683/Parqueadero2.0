@@ -2,7 +2,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IRegistroSalidasAplicacion
+    public interface IRegistroSalidasPresentacion
     {
         RegistroSalidas Insertar(RegistroSalidas entidad);
         RegistroSalidas Actualizar(RegistroSalidas entidad);

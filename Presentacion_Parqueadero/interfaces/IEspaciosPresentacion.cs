@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IEspaciosAplicacion
+    public interface IEspaciosPresentacion
     {
         Espacios Insertar(Espacios entidad);
         Espacios Actualizar(Espacios entidad);

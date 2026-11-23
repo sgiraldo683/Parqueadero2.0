@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface ITrabajadoresAplicacion
+    public interface ITrabajadoresPresentacion
     {
         Trabajadores Insertar(Trabajadores entidad);
         Trabajadores Actualizar(Trabajadores entidad);

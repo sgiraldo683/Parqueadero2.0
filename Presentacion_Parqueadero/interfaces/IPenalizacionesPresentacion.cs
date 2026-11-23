@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IPenalizacionesAplicacion
+    public interface IPenalizacionesPresentacion
     {
         Penalizaciones Insertar(Penalizaciones entidad);
         Penalizaciones Actualizar(Penalizaciones entidad);

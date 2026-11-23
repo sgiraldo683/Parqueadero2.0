@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface ITarifasAplicacion
+    public interface ITarifasPresentacion
     {
         Tarifas Insertar(Tarifas entidad);
         Tarifas Actualizar(Tarifas entidad);

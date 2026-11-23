@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IVehiculosAplicacion
+    public interface IVehiculosPresentacion
     {
         Vehiculos Insertar(Vehiculos entidad);
         Vehiculos Actualizar(Vehiculos entidad);

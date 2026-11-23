@@ -5,7 +5,7 @@ using Presentaciones_Parqueadero.interfaces;
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public class AdministradorPresentacion : IAdministradorPresentacion
+    public class AdministradorPresentacion : IClientesPresentacion
     {
         private IComunicaciones IComunicaciones;
 
@@ -71,27 +71,27 @@ namespace Presentacion_Parqueadero.interfaces
             return task.Result;
         }
 
-        Administrador IAdministradorPresentacion.Actualizar(Administrador entidad)
+        Administrador IClientesPresentacion.Actualizar(Administrador entidad)
         {
             throw new NotImplementedException();
         }
 
-        Administrador IAdministradorPresentacion.Borrar(Administrador entidad)
+        Administrador IClientesPresentacion.Borrar(Administrador entidad)
         {
             throw new NotImplementedException();
         }
 
-        List<Administrador> IAdministradorPresentacion.Buscar(Administrador entidad)
+        List<Administrador> IClientesPresentacion.Buscar(Administrador entidad)
         {
             throw new NotImplementedException();
         }
 
-        List<Administrador> IAdministradorPresentacion.Consultar()
+        List<Administrador> IClientesPresentacion.Consultar()
         {
             throw new NotImplementedException();
         }
 
-        Administrador IAdministradorPresentacion.Insertar(Administrador entidad)
+        Administrador IClientesPresentacion.Insertar(Administrador entidad)
         {
             throw new NotImplementedException();
         }

@@ -3,7 +3,7 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IContratosAplicacion
+    public interface IContratosPresentacion
     {
         Contratos Insertar(Contratos entidad);
         Contratos Actualizar(Contratos entidad);
