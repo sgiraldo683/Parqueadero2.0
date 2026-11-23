@@ -9,6 +9,6 @@ namespace Aplicacion_Parqueadero.entidades
         public int? Id_factura { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Valor { get; set; }
-        public string Metodo { get; set; } = string.Empty;
+        public string? Metodo { get; set; }
     }
 }

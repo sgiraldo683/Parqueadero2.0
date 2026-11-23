@@ -67,7 +67,9 @@ namespace Aplicacion_Parqueadero.implementaciones
         {
             return string.IsNullOrEmpty(entidad.Codigo) ||
                 entidad.Id_ticket == 0 ||
-                entidad.Id_vehiculo==0;
+                entidad.Id_vehiculo == 0 ||
+                entidad.Fecha_entrada == DateTime.MinValue 
+                || entidad.Hora_entrada == TimeSpan.MaxValue;
         }
     }
 }

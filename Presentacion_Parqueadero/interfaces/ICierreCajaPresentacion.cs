@@ -5,10 +5,10 @@ namespace Presentacion_Parqueadero.interfaces
 {
     public interface ICierreCajaPresentacion
     {
-        CierreCaja Insertar(CierreCaja entidad);
-        CierreCaja Actualizar(CierreCaja entidad);
-        List<CierreCaja> Consultar();
-        CierreCaja Borrar(CierreCaja entidad);
-        List<CierreCaja> Buscar(CierreCaja entidad);
+        CierreCajas Insertar(CierreCajas entidad);
+        CierreCajas Actualizar(CierreCajas entidad);
+        List<CierreCajas> Consultar();
+        CierreCajas Borrar(CierreCajas entidad);
+        List<CierreCajas> Buscar(CierreCajas entidad);
     }
 }

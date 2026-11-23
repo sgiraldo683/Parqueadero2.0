@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacion_Parqueadero.implementaciones
 {
-    public class AdministadorsAplicacion : IAdministadorAplicacion
+    public class AdministadorsAplicacion : IAdministradorAplicacion
     {
         private IConexion conexion;
 
@@ -14,7 +14,7 @@ namespace Aplicacion_Parqueadero.implementaciones
             this.conexion = conexion;
         }
 
-        public Administador Actualizar(Administador entidad)
+        public Administrador Actualizar(Administrador entidad)
         {
             if (entidad.Id_administrador == 0)
                 throw new Exception("No se ha guardo");
@@ -33,21 +33,21 @@ namespace Aplicacion_Parqueadero.implementaciones
             if (entidad.Id_administrador == 0)
                 throw new Exception("No se ha guardo");
 
-            this.conexion.Administradores!.Remove(entidad!);
+            this.conexion.Administrador!.Remove(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
         public List<Administrador> Buscar(Administrador entidad)
         {
-            return this.conexion.Administradores!
+            return this.conexion.Administrador!
                 .Where(x => x.Nombres!.Contains(entidad.Nombres!))
                 .ToList();
         }
 
         public List<Administrador> Consultar()
         {
-            return this.conexion.Administradores!.ToList();
+            return this.conexion.Administrador!.ToList();
         }
 
         public Administrador Insertar(Administrador entidad)
@@ -58,7 +58,7 @@ namespace Aplicacion_Parqueadero.implementaciones
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            this.conexion.Administradores!.Add(entidad!);
+            this.conexion.Administrador!.Add(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }

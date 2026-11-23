@@ -5,70 +5,71 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacion_Parqueadero.implementaciones
 {
-    public class VehiculosAplicacion : IClientesAplicacion
+    public class PromocionesAplicacion : IPromocionesAplicacion
     {
         private IConexion conexion;
 
-        public VehiculosAplicacion(IConexion conexion)
+        public PromocionesAplicacion(IConexion conexion)
         {
             this.conexion = conexion;
         }
 
-        public Clientes Actualizar(Clientes entidad)
+        public Promociones Actualizar(Promociones entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_promocion == 0)
                 throw new Exception("No se ha guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            var entry = this.conexion!.Entry<Clientes>(entidad);
+            var entry = this.conexion!.Entry<Promociones>(entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
             return entidad;
         }
 
-        public Clientes Borrar(Clientes entidad)
+        public Promociones Borrar(Promociones entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_promocion == 0)
                 throw new Exception("No se ha guardo");
 
-            this.conexion.Clientes!.Remove(entidad!);
+            this.conexion.Promociones!.Remove(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        public List<Clientes> Buscar(Clientes entidad)
+        public List<Promociones> Buscar(Promociones entidad)
         {
-            return this.conexion.Clientes!
-                .Where(x => x.Nombres!.Contains(entidad.Nombres!))
+            return this.conexion.Promociones!
+                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
                 .ToList();
         }
 
-        public List<Clientes> Consultar()
+        public List<Promociones> Consultar()
         {
-            return this.conexion.Clientes!.ToList();
+            return this.conexion.Promociones!.ToList();
         }
 
-        public Clientes Insertar(Clientes entidad)
+        public Promociones Insertar(Promociones entidad)
         {
-            if (entidad.Id_cliente != 0)
+            if (entidad.Id_promocion != 0)
                 throw new Exception("Ya se guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            this.conexion.Clientes!.Add(entidad!);
+            this.conexion.Promociones!.Add(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        private bool Validar(Clientes entidad)
+        private bool Validar(Promociones entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombres) ||
-                string.IsNullOrEmpty(entidad.Apellidos) ||
-                string.IsNullOrEmpty(entidad.Documento) ||
-                string.IsNullOrEmpty(entidad.Telefono);
+            return string.IsNullOrEmpty(entidad.Nombre) ||
+                entidad.Descuento == 0 ||
+                string.IsNullOrEmpty(entidad.Descripcion) ||
+                entidad.Id_promocion == 0 ||
+                entidad.Fecha_vencimiento == DateTime.MinValue;
         }
     }
 }

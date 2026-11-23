@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Aplicacion_Parqueadero.entidades
 {
-    public class CierreCaja
+    public class CierreCajas
     {
         [Key]
         public int Id_caja { get; set; }

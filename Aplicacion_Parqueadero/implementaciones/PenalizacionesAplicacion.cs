@@ -5,70 +5,71 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacion_Parqueadero.implementaciones
 {
-    public class ClientesAplicacion : IClientesAplicacion
+    public class PenalizacionesAplicacion : IPenalizacionesAplicacion
     {
         private IConexion conexion;
 
-        public ClientesAplicacion(IConexion conexion)
+        public PenalizacionesAplicacion(IConexion conexion)
         {
             this.conexion = conexion;
         }
 
-        public Clientes Actualizar(Clientes entidad)
+        public Penalizaciones Actualizar(Penalizaciones entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_penalizacion == 0)
                 throw new Exception("No se ha guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            var entry = this.conexion!.Entry<Clientes>(entidad);
+            var entry = this.conexion!.Entry<Penalizaciones>(entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
             return entidad;
         }
 
-        public Clientes Borrar(Clientes entidad)
+        public Penalizaciones Borrar(Penalizaciones entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_penalizacion == 0)
                 throw new Exception("No se ha guardo");
 
-            this.conexion.Clientes!.Remove(entidad!);
+            this.conexion.Penalizaciones!.Remove(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        public List<Clientes> Buscar(Clientes entidad)
+        public List<Penalizaciones> Buscar(Penalizaciones entidad)
         {
-            return this.conexion.Clientes!
-                .Where(x => x.Nombres!.Contains(entidad.Nombres!))
+            return this.conexion.Penalizaciones!
+                .Where(x => x.Id_penalizacion.ToString() == entidad.Id_penalizacion.ToString())
                 .ToList();
         }
 
-        public List<Clientes> Consultar()
+        public List<Penalizaciones> Consultar()
         {
-            return this.conexion.Clientes!.ToList();
+            return this.conexion.Penalizaciones!.ToList();
         }
 
-        public Clientes Insertar(Clientes entidad)
+        public Penalizaciones Insertar(Penalizaciones entidad)
         {
-            if (entidad.Id_cliente != 0)
+            if (entidad.Id_penalizacion != 0)
                 throw new Exception("Ya se guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            this.conexion.Clientes!.Add(entidad!);
+            this.conexion.Penalizaciones!.Add(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        private bool Validar(Clientes entidad)
+        private bool Validar(Penalizaciones entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombres) ||
-                string.IsNullOrEmpty(entidad.Apellidos) ||
-                string.IsNullOrEmpty(entidad.Documento) ||
-                string.IsNullOrEmpty(entidad.Telefono);
+            return string.IsNullOrEmpty(entidad.Motivo) ||
+                entidad.Id_penalizacion == 0 ||
+                entidad.Id_ticket == 0 ||
+                entidad.Fecha == DateTime.MinValue ||
+                entidad.Valor == 0;
         }
     }
 }

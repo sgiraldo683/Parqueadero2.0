@@ -5,70 +5,70 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacion_Parqueadero.implementaciones
 {
-    public class ClientesAplicacion : IClientesAplicacion
+    public class ContratosAplicacion : IContratosAplicacion
     {
         private IConexion conexion;
 
-        public ClientesAplicacion(IConexion conexion)
+        public ContratosAplicacion(IConexion conexion)
         {
             this.conexion = conexion;
         }
 
-        public Clientes Actualizar(Clientes entidad)
+        public Contratos Actualizar(Contratos entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_contrato == 0)
                 throw new Exception("No se ha guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            var entry = this.conexion!.Entry<Clientes>(entidad);
+            var entry = this.conexion!.Entry<Contratos>(entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
             return entidad;
         }
 
-        public Clientes Borrar(Clientes entidad)
+        public Contratos Borrar(Contratos entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_contrato == 0)
                 throw new Exception("No se ha guardo");
 
-            this.conexion.Clientes!.Remove(entidad!);
+            this.conexion.Contratos!.Remove(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        public List<Clientes> Buscar(Clientes entidad)
+        public List<Contratos> Buscar(Contratos entidad)
         {
-            return this.conexion.Clientes!
-                .Where(x => x.Nombres!.Contains(entidad.Nombres!))
+            return this.conexion.Contratos!
+                .Where(x => x.Id_contrato == entidad.Id_contrato)
                 .ToList();
         }
 
-        public List<Clientes> Consultar()
+        public List<Contratos> Consultar()
         {
-            return this.conexion.Clientes!.ToList();
+            return this.conexion.Contratos!.ToList();
         }
 
-        public Clientes Insertar(Clientes entidad)
+        public Contratos Insertar(Contratos entidad)
         {
-            if (entidad.Id_cliente != 0)
+            if (entidad.Id_contrato != 0)
                 throw new Exception("Ya se guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            this.conexion.Clientes!.Add(entidad!);
+            this.conexion.Contratos!.Add(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        private bool Validar(Clientes entidad)
+        private bool Validar(Contratos entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombres) ||
-                string.IsNullOrEmpty(entidad.Apellidos) ||
-                string.IsNullOrEmpty(entidad.Documento) ||
-                string.IsNullOrEmpty(entidad.Telefono);
+            return entidad.Id_contrato == 0 ||
+                entidad.Id_cliente == 0 ||
+                entidad.Id_plan == 0 ||
+                entidad.Fecha_inicio == DateTime.MinValue ||
+                entidad.Fecha_fin == DateTime.MinValue;
         }
-    }
 }

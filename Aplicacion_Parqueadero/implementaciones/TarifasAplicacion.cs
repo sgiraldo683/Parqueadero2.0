@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacion_Parqueadero.implementaciones
 {
-    public class VehiculosAplicacion : IClientesAplicacion
+    public class CierreCajaAplicacion : IRegistroSalidasAplicacion
     {
         private IConexion conexion;
 
-        public VehiculosAplicacion(IConexion conexion)
+        public CierreCajaAplicacion(IConexion conexion)
         {
             this.conexion = conexion;
         }

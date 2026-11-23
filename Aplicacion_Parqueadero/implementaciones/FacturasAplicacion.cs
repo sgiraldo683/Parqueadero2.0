@@ -5,70 +5,73 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacion_Parqueadero.implementaciones
 {
-    public class ClientesAplicacion : IClientesAplicacion
+    public class FacturasAplicacion : IFacturasAplicacion
     {
         private IConexion conexion;
 
-        public ClientesAplicacion(IConexion conexion)
+        public FacturasAplicacion(IConexion conexion)
         {
             this.conexion = conexion;
         }
 
-        public Clientes Actualizar(Clientes entidad)
+        public Facturas Actualizar(Facturas entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_factura == 0)
                 throw new Exception("No se ha guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            var entry = this.conexion!.Entry<Clientes>(entidad);
+            var entry = this.conexion!.Entry<Facturas>(entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
             return entidad;
         }
 
-        public Clientes Borrar(Clientes entidad)
+        public Facturas Borrar(Facturas entidad)
         {
-            if (entidad.Id_cliente == 0)
+            if (entidad.Id_factura == 0)
                 throw new Exception("No se ha guardo");
 
-            this.conexion.Clientes!.Remove(entidad!);
+            this.conexion.Facturas!.Remove(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        public List<Clientes> Buscar(Clientes entidad)
+        public List<Facturas> Buscar(Facturas entidad)
         {
-            return this.conexion.Clientes!
-                .Where(x => x.Nombres!.Contains(entidad.Nombres!))
+            return this.conexion.Facturas!
+                .Where(x => x.Numero!.Contains(entidad.Numero!))
                 .ToList();
         }
 
-        public List<Clientes> Consultar()
+        public List<Facturas> Consultar()
         {
-            return this.conexion.Clientes!.ToList();
+            return this.conexion.Facturas!.ToList();
         }
 
-        public Clientes Insertar(Clientes entidad)
+        public Facturas Insertar(Facturas entidad)
         {
-            if (entidad.Id_cliente != 0)
+            if (entidad.Id_factura != 0)
                 throw new Exception("Ya se guardo");
 
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            this.conexion.Clientes!.Add(entidad!);
+            this.conexion.Facturas!.Add(entidad!);
             this.conexion.SaveChanges();
             return entidad;
         }
 
-        private bool Validar(Clientes entidad)
+        private bool Validar(Facturas entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombres) ||
-                string.IsNullOrEmpty(entidad.Apellidos) ||
-                string.IsNullOrEmpty(entidad.Documento) ||
-                string.IsNullOrEmpty(entidad.Telefono);
+            return string.IsNullOrEmpty(entidad.Numero) ||
+                entidad.Id_factura == 0 ||
+                entidad.Subtotal == 0 ||
+                entidad.Total == 0 ||
+                entidad.Fecha == DateTime.MinValue
+
+               ;
         }
     }
 }
