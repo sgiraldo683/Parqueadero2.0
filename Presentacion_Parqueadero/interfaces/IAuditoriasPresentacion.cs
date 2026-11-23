@@ -3,12 +3,12 @@
 
 namespace Presentacion_Parqueadero.interfaces
 {
-    public interface IClientesAplicacion
+    public interface IAuditoriasPresentacion
     {
-        Clientes Insertar(Clientes entidad);
-        Clientes Actualizar(Clientes entidad);
-        List<Clientes> Consultar();
-        Clientes Borrar(Clientes entidad);
-        List<Clientes> Buscar(Clientes entidad);
+        Auditorias Insertar(Auditorias entidad);
+        Auditorias Actualizar(Auditorias entidad);
+        List<Auditorias> Consultar();
+        Auditorias Borrar(Auditorias entidad);
+        List<Auditorias> Buscar(Auditorias entidad);
     }
 }
