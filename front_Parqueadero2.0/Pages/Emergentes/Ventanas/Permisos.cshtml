@@ -45,31 +45,17 @@
                 
 
                 <label>
-                    Numero
+                    Descripcion
                 </label>
-                <input id=nmNumero"
-                    asp-for="@Model.Actual!.Numero"/>
+                <input id=nmDescripcion"
+                    asp-for="@Model.Actual!.Descripcion"/>
                 <br />
 
                 <label>
-                   Fecha_apertura
+                  Id_Usuario
                 </label>
-                <input id=nmFecha_apertura"
-                    asp-for="@Model.Actual!.Fecha_apertura"/>
-                <br />
-
-                <label>
-                    Saldo_inicial
-                </label>
-                <input id=nmSaldo_inicial"
-                    asp-for="@Model.Actual!.Saldo_inicial"/>
-                <br />
-
-                <label>
-                   Saldo_final
-                </label>
-                <input id=nmSaldo_final"
-                    asp-for="@Model.Actual!.Saldo_final"/>
+                <input id=nmId_Usuario"
+                    asp-for="@Model.Actual!.Id_Usuario"/>
                 <br />
 
                
@@ -87,8 +73,8 @@
                     <h4>
                         ¿Quiere borrar el permiso con información 
                           
-                            @Model.Actual!.Numero,
-                            @Model.Actual!.Fecha_apertura?
+                            @Model.Actual!.Descripcion,
+                            @Model.Actual!.Id_Usuario?
                     </h4>
                     <input type="submit"
                         value="Cancelar"
@@ -110,10 +96,8 @@
                 <table class="tb_data table table-striped table-bordered table-hover">
                     <tr>
                         
-                        <th>Numero</th>
-                        <th>Fecha_apertura</th>
-                        <th>Saldo_inicial</th>
-                        <th>Saldo_final</th>
+                        <th>Descripcion</th>
+                        <th>Id_Usuario</th>
                         <th>Acción</th>
                     </tr>
                     @if (Model != null && Model.Lista != null)
@@ -121,9 +105,9 @@
                         foreach (var elemento in Model.Lista)
                         {
                             <tr>
-                                <td>@elemento.Numero</td>
-                                <td>@elemento.Fecha_apertura</td>
-                                <td>@elemento.Saldo_inicial</td>
+                                <td>@elemento.Descripcion</td>
+                                <td>@elemento.Id_Usuario</td>
+                                <td>
                                 <td>@elemento.Saldo_final</td>
                                 <td>
                                     <input type="submit"
